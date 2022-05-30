@@ -1,0 +1,14 @@
+.btnList {
+  display: flex;
+}
+
+.btnElement {
+  list-style: none;
+  margin-right: 10px;
+}
+
+.btn {
+  border-radius: 5px;
+  padding: 5px;
+  font-size: 20px;
+}
