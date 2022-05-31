@@ -16,7 +16,6 @@ class App extends Component {
     this.setState(prevState => {
       return { [value]: prevState[value] + 1 };
     });
-    console.log(value);
   };
   countTotalFeedback = () => {
     const total = Object.values(this.state).reduce(
