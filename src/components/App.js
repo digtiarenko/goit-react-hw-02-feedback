@@ -34,19 +34,26 @@ class App extends Component {
     return percentage;
   };
 
+  optionsArray = () => {
+    const options = Object.keys(this.state);
+    return options;
+  };
+
   render() {
     return (
       <>
         <Section title="Please leave feedback">
           <FeedbackOptions
-            options={this.state}
+            options={this.optionsArray()}
             onLeaveFeedback={this.onClick}
           />
         </Section>
 
         <Section title="Statistics">
           <Statistics
-            options={this.state}
+            good={this.state.good}
+            neutral={this.state.neutral}
+            bad={this.state.bad}
             total={this.countTotalFeedback}
             positivePercentage={this.countPositiveFeedbackPercentage}
           />

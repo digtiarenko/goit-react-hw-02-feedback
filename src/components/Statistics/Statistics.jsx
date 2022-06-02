@@ -2,17 +2,25 @@ import PropTypes from 'prop-types';
 import styles from './Statistics.module.css';
 import Notification from '../Notification/Notification';
 
-function Statistics({ options, total, positivePercentage }) {
+function Statistics({ good, bad, neutral, total, positivePercentage }) {
   if (total() > 0) {
     return (
       <ul>
-        {Object.keys(options).map(key => (
-          <li key={key}>
-            <p className={styles.feedbackOption}>
-              {key} : <span>{options[key]}</span>
-            </p>
-          </li>
-        ))}
+        <li>
+          <p className={styles.feedbackOption}>
+            Total: <span>{good}</span>{' '}
+          </p>
+        </li>
+        <li>
+          <p className={styles.feedbackOption}>
+            Total: <span>{bad}</span>{' '}
+          </p>
+        </li>
+        <li>
+          <p className={styles.feedbackOption}>
+            Total: <span>{neutral}</span>{' '}
+          </p>
+        </li>
         <li>
           <p className={styles.feedbackOption}>
             Total: <span>{total()}</span>{' '}
@@ -31,11 +39,9 @@ function Statistics({ options, total, positivePercentage }) {
 }
 
 Statistics.propTypes = {
-  options: PropTypes.shape({
-    good: PropTypes.number.isRequired,
-    neutral: PropTypes.number.isRequired,
-    bad: PropTypes.number.isRequired,
-  }),
+  good: PropTypes.number.isRequired,
+  neutral: PropTypes.number.isRequired,
+  bad: PropTypes.number.isRequired,
   positivePercentage: PropTypes.func.isRequired,
   total: PropTypes.func.isRequired,
 };
